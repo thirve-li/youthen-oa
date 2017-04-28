@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+        
+<hibernate-mapping package="com.youthen.oa.persistence.entity">
+    <class name="OaMeeting" table="OA_USER_MEETING_ROOM">
+       <id name="id"  column="ID"  type="java.lang.Long">
+           <generator class="sequence">
+				<param name="sequence">OA_USER_MEETING_ROOM</param>
+			</generator>
+        </id>
+        
+		<property name="userId" column="USER_ID" type="java.lang.String" />
+		<many-to-one name="creater" class="com.youthen.master.persistence.entity.LoginUser" column="USER_ID" lazy="false" insert="false" update="false"  not-found="ignore"></many-to-one>
+		<property name="roomId" column="ROOM_ID" type="java.lang.Long" />
+		<many-to-one name="room" class="com.youthen.oa.persistence.entity.OaRoom" column="ROOM_ID" lazy="false" insert="false" update="false"  not-found="ignore" ></many-to-one>
+		<property name="meetingName" column="NAME" type="java.lang.String"/>
+        <property name="startTime" column="START_TIME" type="java.util.Date"/>
+        <property name="endTime" column="END_TIME" type="java.util.Date" />
+		<property name="purposeId" column="PURPOSE_ID" type="java.lang.Long" />
+		<many-to-one name="meetingType" class="com.youthen.master.persistence.entity.Kbn" column="PURPOSE_ID" lazy="false" insert="false" update="false"  not-found="ignore" ></many-to-one>
+		<property name="projectorCount" column="PROJECTOR_COUNT" type="java.lang.Integer"  />
+		<property name="meetingContent" column="MEETING_CONTENT" type="java.lang.String"  />
+		<property name="attendUser" column="ATTEND_USER" type="java.lang.String"  />
+		<property name="type" column="MEETING_TYPE" type="java.lang.Short"  />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+        
+<hibernate-mapping package="com.youthen.oa.persistence.entity">
+    <class name="OaPicture" table="OA_PICTURE">
+        <id name="id"  column="ID"  type="java.lang.Long">
+           <generator class="sequence">
+				<param name="sequence">OA_PICTURE</param>
+			</generator>
+        </id>
+        
+		<property name="pictureName" column="PICTURE_NAME" type="java.lang.String" />
+		<many-to-one name="creater" class="com.youthen.master.persistence.entity.LoginUser" column="CREATER_ID" lazy="false" ></many-to-one>
+		
+	</class>
+</hibernate-mapping>

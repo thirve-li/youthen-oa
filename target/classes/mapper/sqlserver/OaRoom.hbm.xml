@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-4-21 18:30:07 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="com.youthen.oa.persistence.entity.OaRoom" table="OA_ROOM">
+        <id name="id"  column="ID"  type="java.lang.Long">
+            <generator class="identity"/>
+        </id>
+		
+	    <property name="departmentId" column="DEPARTMENT_ID" type="java.lang.Long" />  
+		<many-to-one name="department" class="com.youthen.master.persistence.entity.Department" column="DEPARTMENT_ID"  cascade="none"   insert="false" update="false"   lazy="false" not-found="ignore"></many-to-one>
+        
+        <property name="areaId" column="AREA_ID" type="java.lang.Long" /> 
+		<many-to-one name="area" class="com.youthen.master.persistence.entity.Kbn" column="AREA_ID"  cascade="none" lazy="false" insert="false" update="false"  not-found="ignore"></many-to-one>
+        
+        
+        <property name="roomName" type="string">
+            <column name="ROOM_NAME" length="200" />
+        </property>
+        <property name="roomCode" type="string">
+            <column name="ROOM_CODE" length="200" />
+        </property>
+        <property name="bakColumn1" type="string">
+            <column name="BAK_COLUMN1" length="200" />
+        </property>
+        <property name="bakColumn2" type="string">
+            <column name="BAK_COLUMN2" length="200" />
+        </property>
+        <property name="bakColumn3" type="string">
+            <column name="BAK_COLUMN3" length="200" />
+        </property>
+        <property name="bakColumn4" type="string">
+            <column name="BAK_COLUMN4" length="200" />
+        </property>
+        <property name="bakColumn5" type="string">
+            <column name="BAK_COLUMN5" length="200" />
+        </property>
+        <property name="bakColumn6" type="string">
+            <column name="BAK_COLUMN6" length="200" />
+        </property>
+        <property name="bakColumn7" type="string">
+            <column name="BAK_COLUMN7" length="200" />
+        </property>
+        <property name="bakColumn8" type="string">
+            <column name="BAK_COLUMN8" length="200" />
+        </property>
+        <property name="bakColumn9" type="string">
+            <column name="BAK_COLUMN9" length="200" />
+        </property>
+        <property name="bakColumn10" type="string">
+            <column name="BAK_COLUMN10" length="200" />
+        </property>
+        <property name="createrId" type="string">
+            <column name="CREATER_ID" length="200" />
+        </property>
+        <property name="companyId" type="long">
+            <column name="COMPANY_ID" precision="22" scale="0" />
+        </property>
+        
+		<many-to-one name="company" class="com.youthen.master.persistence.entity.Company" column="COMPANY_ID" lazy="false" insert="false" update="false"  not-found="ignore"></many-to-one>
+        
+        
+        <property name="createTime" type="timestamp">
+            <column name="CREATE_TIME" length="11" />
+        </property>
+        
+        <property name="updId" column="UPDATER_ID" type="java.lang.String" />
+		<property name="updTime" column="UPDATE_TIME" type="java.lang.String"  />
+		<property name="versionNo" column="VERSION_NO" type="java.lang.Long" />
+        
+        <property name="status" type="long">
+            <column name="STATUS" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

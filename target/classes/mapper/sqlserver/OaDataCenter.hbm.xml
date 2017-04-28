@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+        
+<hibernate-mapping package="com.youthen.oa.persistence.entity">
+    <class name="OaDataCenter" table="OA_DATACENTER">
+        <id name="id"  column="ID"  type="java.lang.Long">
+            <generator class="identity"/>
+        </id>
+        
+		<property name="filePath" column="FILE_PATH" type="java.lang.String" />
+		<property name="fileName" column="FILE_NAME" type="java.lang.String" />
+		<property name="bigColumnId" column="BIG_COLUM_ID" type="java.lang.Long"/>
+        <many-to-one name="bigColumn" class="com.youthen.master.persistence.entity.Kbn" column="BIG_COLUM_ID" lazy="false" insert="false" update="false"  not-found="ignore" ></many-to-one>
+		<property name="columnId" column="COLUMN_ID" type="java.lang.Long" />
+        <many-to-one name="smallColumn" class="com.youthen.master.persistence.entity.Kbn" column="COLUMN_ID" lazy="false" insert="false" update="false"  not-found="ignore" ></many-to-one>
+		<many-to-one name="creater" class="com.youthen.master.persistence.entity.LoginUser" column="CREATER_ID" lazy="false" ></many-to-one>
+		<property name="createTime" column="CREATE_TIME" type="java.util.Date"/>
+        <property name="status" column="STATUS" type="java.lang.Integer"/>
+        <property name="versionNo" column="VERSION_NO" type="java.lang.Long" />
+		<property name="updId" column="UPDATER_ID" type="java.lang.String" />
+		<property name="updTime" column="UPDATE_TIME" type="java.lang.String"  />
+	</class>
+</hibernate-mapping>

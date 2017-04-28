@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.youthen.master.persistence.entity">
+	<class name="Article" table="OA_ARTICLE">
+		<id name="id" column="ID" type="java.lang.Long">
+		    <generator class="identity"/>
+		</id>
+
+		<property name="bigColumnId" column="BIG_COLUM_ID" type="java.lang.Long"/>
+        <many-to-one name="bigColumn" class="Kbn" column="BIG_COLUM_ID" lazy="false" insert="false" update="false"  not-found="ignore" ></many-to-one>
+        <property name="smallColumnId" column="SMALL_COLUM_ID" type="java.lang.Long"/>
+        <many-to-one name="smallColumn" class="Kbn" column="SMALL_COLUM_ID" lazy="false" insert="false" update="false"  not-found="ignore" ></many-to-one>
+        <property name="status" column="STATUS" type="java.lang.Integer"/>
+		<property name="title" column="TITLE" type="java.lang.String"/>
+		<property name="content" column="CONTENT" type="java.lang.String" />
+		<property name="createTime" column="CREATE_TIME" type="java.util.Date" />
+		<property name="updId" column="UPDATE_ID" type="java.lang.String" />
+		<many-to-one name="creater" class="com.youthen.master.persistence.entity.LoginUser" column="CREATER_ID" lazy="false" ></many-to-one>
+		<property name="updTime" column="UPDATE_TIME" type="java.lang.String" />
+		<property name="versionNo" column="VERSION_NO" type="java.lang.Long" />
+
+	</class>
+
+</hibernate-mapping>
