@@ -261,11 +261,11 @@
 			<version>1.6.12</version>
 		</dependency>
 		<!-- Oracle数据库驱动 -->
- 		<dependency>
+ 		<!-- <dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc14</artifactId>
 			<version>10.2.0.4.0</version>
-		</dependency>
+		</dependency> -->
 		<!-- c3p0数据库连接池 -->
 		<dependency>
 			<groupId>c3p0</groupId>
